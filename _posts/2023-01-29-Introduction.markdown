@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Introduction to Python at SRA"
-date: 2023-01-28 16:38:41 +1100
+date:   2023-01-28 16:38:41 +1100
 categories: 23T1
 ---
 Welcome to the Advanced Coding Class - Python at Sydney Robotics Academy. This 
