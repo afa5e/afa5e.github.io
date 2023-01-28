@@ -357,7 +357,14 @@ x[3:6]
 # "h"
 x[0]
 ```
+### Running our code
+To run our code in the terminal, we first need to check that we are in the folder 
+that contains our python file. To do this, `ls` (`dir` if windows) to check the 
+contents of the current folder. If you do not see your python file, `cd` into the 
+correct folder. Then, run the Python file with the `py` or `python` command 
+followed by the name of the file.
 
+Example: `py helloworld.py`
 
 ## Tasks
 This week's tasks are for you to get used to writing code in python and using 
