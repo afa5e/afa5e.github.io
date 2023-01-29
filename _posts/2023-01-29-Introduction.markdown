@@ -5,6 +5,8 @@ date:   2023-01-29 9:30:42 +1100
 categories: 23T1
 ---
 
+* TOC 
+{:toc}
 
 Welcome to the Advanced Coding Class - Python at Sydney Robotics Academy. This 
 term we will be covering a range of topics with Python:
@@ -31,6 +33,8 @@ We will be installing all of these programs from our local website:
 Once these two programs have been installed, please open VSCode and you will 
 see options to change the theme. You can choose any theme you want.
 
+## Terminal
+
 Now, before we write code, we first need to setup our workspace. You will need
 a program called a terminal to run our code.
 
@@ -51,7 +55,7 @@ to open the same menu. Then, select the `command prompt` option.
 In Mac OS, there is only one terminal program, called Terminal. Search for this
 program in the apps list and open.
 
-## Using the Terminal
+### Using the Terminal
 
 In the terminal, you should see some path to a folder. This is called the prompt
 and tells you where you are in the file system. Here in the terminal, you can 
