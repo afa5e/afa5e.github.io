@@ -1,9 +1,11 @@
 ---
 layout: post
 title:  "Introduction to Python at SRA"
-date:   2023-01-28 16:38:41 +1100
+date:   2023-01-29 9:30:42 +1100
 categories: 23T1
 ---
+
+
 Welcome to the Advanced Coding Class - Python at Sydney Robotics Academy. This 
 term we will be covering a range of topics with Python:
   - I/O operations, including from the terminal and filesystem.
