@@ -3,6 +3,7 @@ layout: post
 title:  "Introduction to Python at SRA"
 date:   2023-01-29 9:30:42 +1100
 categories: 23T1
+expires: 2023-09-09 23:59:59 +1100
 ---
 
 * TOC 
@@ -105,7 +106,7 @@ which command prefix to use.
 
 ## Using VSCode
 
-![VSCode](/img/vscode.png)
+![VSCode](/assets/img/vscode.png)
 
 Now that you have finished setting up VSCode and the terminal, we first need to 
 open the folder that we made previously. On the left, open the file/folder menu 
@@ -402,7 +403,4 @@ be available for you to access at home if you like.
     is a perfect square, False otherwise.
 13. Write a program that takes a number as input and returns the next palindrome 
     number greater than the given number.
-14. Write a program that takes a number as input and returns the number of ways 
-    to represent it as a sum of positive integers.
-15. Create a program that takes a string as input and returns the length of the 
-    longest valid parenthesis substring.
+14. Create a program that takes a string as input and checks if it is a valid parenthesis substring.
