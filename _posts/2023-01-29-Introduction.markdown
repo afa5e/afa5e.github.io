@@ -3,6 +3,7 @@ layout: post
 title:  "Introduction to Python at SRA"
 date:   2023-01-29 9:30:42 +1100
 categories: 23T1
+expires: 2023-07-09 23:59:59 +1100
 ---
 
 * TOC 
