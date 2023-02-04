@@ -3,6 +3,7 @@ layout: post
 title:  "Week 1 Solutions"
 date:   2023-01-29 9:30:42 +1100
 categories: 23T1 23T1-Solutions
+expires: 2023-04-09 23:59:59 +1100
 ---
 
 * TOC 
@@ -405,7 +406,121 @@ while exponent >= 0:
 
 print(count)
 ```
+</details>
+<br/>
+{::options parse_block_html="false" /}
 
+## Task 12 - Perfect Squares
+
+If a number is a perfect square, it means that it can be formed by multiplying 
+an integer by itself. To check for this, we can either try to generate a list 
+of square numbers, but that would not be time efficient. Instead, we can attempt 
+to square root the number, and then check if the result is an integer or not.
+
+{::options parse_block_html="true" /}
+<details><summary markdown="span">Hint:</summary>
+<hr style="height:10px; visibility:hidden;" />
+
+Recalling from task 5, where we used the modulo operation to find the 
+remainder, what would happen if we took the modulo one of a decimal and 
+integer (e.g. ```1.5 mod 1``` vs ```3 mod 1```)?
+
+</details>
+
+<details><summary markdown="span">Solution:</summary>
+<hr style="height:10px; visibility:hidden;" />
+The intended solution to this problem utilises the behaviour of the modulo one 
+operation, where if we have an integer, the operation returns zero. We check 
+this in an if-else statement to then print out the appropriate message.
+
+In this case, converting the input to an integer could work, as perfect squares 
+must be an integer. But, if the user attempts to check a float we will get an 
+error.
+
+```python
+print("Number: ", end = "")
+number = float(input())
+
+if number ** (1/2) % 1 == 0:
+    print("Perfect Square!")
+else:
+    print("Not a perfect square")
+```
+
+</details>
+<br/>
+{::options parse_block_html="false" /}
+
+## Task 13 - Palindrome
+To make the next palindrome we can reuse our code from task 10, where we checked if a number is a palindrome or not. 
+
+One method that trades time complexity for simplicity is to check every integer greater than the input until one is 
+found. This method has a time complexity of <code>O(n<sup>2</sup>)</code>, where ```n``` is the number of digits. 
+This is because the algorithm uses a brute-force approach, incrementing the number and checking for palindromicity 
+at each step, which takes ```O(n)``` time for each check. So for each iteration, the total time taken is ```O(n)```, 
+and since the algorithm iterates n times, the total time complexity is <code>O(n<sup>2</sup>)</code>
+
+{::options parse_block_html="true" /}
+<details><summary markdown="span">Solution 1:</summary>
+<hr style="height:10px; visibility:hidden;" />
+
+```python
+print("Number: ", end = "")
+number = int(input(""))
+
+palNumber = str(number + 1)
+while True:
+    if palNumber[::-1] == palNumber:
+        print(palNumber)
+        exit()
+    else:
+        palNumber = str(int(palNumber) + 1)
+```
+</details>
+<br/>
+{::options parse_block_html="false" /}
+
+Alternatively, we can create an algorithm that can use string manipulation to decrease the complexity to ```O(n)```, 
+i.e. the time scales linearly according to the length of the number. To do this, our code can treat the number as a 
+string, and mirror the left side to the right. Then, we can check if this new number is bigger, if not, we increment 
+the least significant digit in the left side and mirror to the right. As algorithm uses string manipulation and 
+arithmetic operations to generate the next palindrome, which takes ```O(n)``` time in total and it only has to make 
+a single pass through the input number, the time complexity is ```O(n)```.
+
+{::options parse_block_html="true" /}
+<details><summary markdown="span">Solution 2:</summary>
+<hr style="height:10px; visibility:hidden;" />
+
+```python
+print("Number: ", end = "")
+n = int(input(""))
+
+length = len(str(n))
+if length == 1:
+    print(n + 1)
+    exit()
+if length % 2 == 0:
+    left = str(n)[:length // 2]
+    pal = int(left + left[::-1])
+    if pal > n:
+        print(pal)
+        exit()
+    left = str(int(left) + 1)
+    print(int(left + left[::-1]))
+    exit()
+else:
+    left = str(n)[:length // 2]
+    print(left)
+    right = str(n)[length // 2 + 1:]
+    print(right)
+    pal = int(left + str(n)[length // 2] + left[::-1])
+    if pal > n:
+        print(pal)
+        exit()
+    center = int(str(n)[length // 2])
+    print(int(left + str(center + 1) + left[::-1]))
+    exit()
+```
 </details>
 <br/>
 {::options parse_block_html="false" /}
