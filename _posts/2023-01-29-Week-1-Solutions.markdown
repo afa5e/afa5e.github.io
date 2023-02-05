@@ -524,3 +524,68 @@ else:
 </details>
 <br/>
 {::options parse_block_html="false" /}
+
+## Task 14 - Matching Brackets
+This task requires your code to be able to find matching pairs of brackets. 
+This means that any opening bracket must be paired with a closing bracket, 
+and while nesting brackets are allowed, they must match.
+
+Example: `[]{}()` and `[{()}]` is valid but `([{]})` is not, even though the 
+outer parentheses are matched, but the inner braces and brackets do not.
+
+This task will require some knowledge of Python that have not been covered in 
+this class in the first two lessons, namely lists, `filter()` and for loops.
+
+{::options parse_block_html="true" /}
+<details><summary markdown="span">Solution:</summary>
+<hr style="height:10px; visibility:hidden;" />
+
+The code first asks the user for the input string, and removes all characters 
+except the brackets, braces and parentheses. Then, we will iterate through all 
+characters in the list and check if the next characteer is the matching symbol.
+As we only have the brackets in the string, an opening bracket must be followed 
+by the matching closing bracket. Any other symbol means that the string is 
+invalid.
+
+```python
+print("Input: ", end = "")
+brackets = input()
+bracketString = []
+
+# Removes all characters except the brackets, braces and parentheses.
+for char in brackets:
+    if char.isalpha:
+        bracketString.append(char)
+
+# Iterate through and check for matching pairs.
+i = 0
+for j in range(0, len(bracketString)):
+    while i < len(bracketString):
+        match bracketString[i]:
+            case "[":
+                if bracketString[i + 1] == "]":
+                    bracketString[i] = ""
+                    bracketString[i + 1] = ""
+            case "{":
+                if bracketString[i + 1] == "}":
+                    bracketString[i] = ""
+                    bracketString[i + 1] = ""
+            case "(":
+                if bracketString[i + 1] == ")":
+                    bracketString[i] = ""
+                    bracketString[i + 1] = ""
+
+        i += 1
+
+# Remove all empty items in the list.
+bracketString = list(filter(None, bracketString))
+
+# Print the appropriate message
+if len(bracketString) == 0:
+    print("valid")
+else:
+    print("invalid")
+```
+</details>
+<br/>
+{::options parse_block_html="false" /}
