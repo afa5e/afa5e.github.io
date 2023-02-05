@@ -524,3 +524,14 @@ else:
 </details>
 <br/>
 {::options parse_block_html="false" /}
+
+## Task 14 - Matching Brackets
+This task requires your code to be able to find matching pairs of brackets. 
+This means that any opening bracket must be paired with a closing bracket, 
+and while nesting brackets are allowed, they must match.
+
+Example: `[]{}()` and `[{()}]` is valid but `([{]})` is not, even though the 
+outer parentheses are matched, but the inner braces and brackets do not.
+
+This task will require some knowledge of Python that have not been covered in 
+this class in the first two lessons, namely lists, `filter()` and for loops.
