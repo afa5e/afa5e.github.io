@@ -2,6 +2,7 @@
 layout: post
 title: Week 3 - Input/Outputs
 categories: 23T1
+date:   2023-02-04 9:00:00 +1100
 expires: 2023-09-09 23:59:59 +1100
 ---
 
@@ -13,11 +14,29 @@ This week's lesson will cover input and output (IO) from both the terminal and
 the filesystem. This will include: `input()`, `open()`, and associated file 
 functions.
 
-## Special Characters
-In Python, strings are stored as a list of individual characters, and each character is stored as an integer. Not only do we have alphanumeric symbolas and punctuation, but we also have some special characters. When we are printing text to the terminal, we sometimes need to print some characters that we cannot type with our keyboard. 
+## Characters
+
+### Binary
+All data is stored as binary in the computer's memory, this means that all of 
+our code, variables in the code and other files in our computer are all translated 
+into ones and zeroes and stored as electrical charges in the hardware. Every 
+file in our computer system has a file extension, telling the OS how to interpret 
+the file and what programs can be used to open them.
+
+In Python, strings are stored as a list of individual characters, and each 
+character is stored as an integer. We now need a method of translating between 
+the characters and the integers. First came ASCII, an American invention that 
+followed the International Telegraph Alphabet (ITA) system, then Unicode expanded 
+the size to accommodate other languages and symbols. Currently, almost all text 
+is saved as a form of Unicode.
 
 ### ASCII
-This mainly includes newlines, but as the terminal, and by extension Python, was designed to be backwards compatible with historic computing devices, there are some special characters that serve some outdated functions such as the `bell` character. These are represented by the ASCII (American Standard Code for Information Interchange) table:
+Ascii first was designed as a replacement for ITA2. While ASCII was not designed 
+for computers, it was used in early microprocessor computers. ASCII expanded on 
+the usual alphanumeric + punctuation characters and included some commands for 
+communication between early computers. These mainly includes newlines, and other 
+commands such as the `bell` character. These are represented by the ASCII 
+(American Standard Code for Information Interchange) table:
 
 [Skip table](#unicode)
 
@@ -119,7 +138,7 @@ This mainly includes newlines, but as the terminal, and by extension Python, was
 | `]`    | 93      | 0x5D        | Right bracket |
 | `^`    | 94      | 0x5E        | Caret symbol |
 | `_`    | 95      | 0x5F        | Underscore |
-| <code>`</code> | 96 | 0x60     | Backquote |
+| <code>`</code> | 96 | 0x60     | Backtick |
 | `a`    | 97      | 0x61        | Lowercase letter a |
 | `b`    | 98      | 0x62        | Lowercase letter b |
 | `c`    | 99      | 0x63        | Lowercase letter c |
@@ -152,17 +171,39 @@ This mainly includes newlines, but as the terminal, and by extension Python, was
 | `~`    | 126     | 0x7E        | Tilde |
 | `DEL`  | 127     | 0x7F        | Delete character |
 
+[Skip table](#ascii)
+
 ### Unicode
 While the ASCII table covers all of the alphanumeric symbols and most other 
 punctuation that is used, this is only suitable for the English alphabet, there 
 is no support for other languages or scripts with other symbols. To solve this, we
 can use Unicode, which is backwards compatible with ASCII but uses more memory per
-character.
+character. Instead of ASCII's 8 bits per character, the latest iteration of Unicode 
+uses 16-21 bits per character. Each extra bit used doubled the theoretical number 
+of characters.
+
+While the Unicode system uses up to 21 bits per code point, computers store 
+information in blocks of 8 bits, resulting in the Unicode Transformation 
+Format - 8bit (UTF-8), using one to four 8 bit code units. This allows for up to 
+2<sup>32</sup> unique characters before needing more space.
 
 ## Terminal IO
 As our code is being run in the terminal, we will need to be able to interact with 
 it. To do this, we will be using a variety of different functions that not only 
 allows us to do basic IO operations, but can also allow complex formatting.
+
+### Escape Characters
+Instead of manually typing out the UTF-8 code point for every special symbol, 
+instead we can use escape sequences. In python, all escape sequences begin with 
+the backslash `\` followed by one or more characters. When we want to create a 
+string, we must wrap the string with quotation marks, but if we want to include 
+quotation marks in the string, we encounter issues with unmatched pairs of 
+quotation marks. To solve this, we can escape out the quote that we want in the 
+string with a backslash. `print("This is an escaped quotation mark: \"")` will 
+print out: `This is an escaped quotation mark: "`.
+
+All escape characters:
+
 
 ### Input
 As we should all be familiar now, the function to get an input from the terminal is 
@@ -180,13 +221,25 @@ variable = input()
 input()
 ```
 
+#### Removing leading and trailing whitespace
+When we have user input, we need to sanitise it by checking if it is valid, and 
+removing whitespace. In this class we can safely assume that our inputs will always 
+be valid, unless otherwise told. Realistically, all inputs must be sanitised 
+before any other processing is applied. This is a major security issue if this 
+is not correctly implemented.
+
+Some examples:
+
+![Bobby Tables]({{site.baseurl}}/assets/img/exploits.png)
+![XSS Self retweeting tweet]({{site.baseurl}}/assets/img/tweetdeck-hacked.png)
+
 ### Output
 
 #### Print()
 Terminal output can be accomplished mainly through the `print()` function, 
 allowing us to print text to the terminal. When we are using the `print()` 
 function, there are some arguments that we need to give it first: what we 
-are printing, *seperator*, *ending* and *file*. (Italicised arguments are 
+are printing, *separator*, *ending* and *file*. (italicised arguments are 
 optional)
 
 Not only can we print out a single string, but we can also print out multiple 
@@ -220,5 +273,59 @@ print("Welcome to", text, sep = "")
 print("Hello", end = "")
 ```
 
+In the previous examples, we separated each object with a comma, but we can 
+also use `str.format()` to replace braces delimited literal text. This means 
+that in our string, we can add some replacement fields `{}`.Each replacement 
+field contains either the numeric index of a positional argument, or the name 
+of a keyword argument.
+
+```python
+# 'The sum of 1 + 2 is 3'
+"The sum of 1 + 2 is {0}".format(1 + 2)
+
+# Hello world
+a = "Hello {0}"
+a.format("world")
+
+# 'Coordinates: 37.24N, -115.81W'
+'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W')
+```
+
+Code that uses this method is easier to read than just printing, but is still 
+verbose. Another method is to use "fstrings" also known as "formatted string 
+literals." These fstrings have the letter `f` preceding the quotation marks 
+and uses the same replacement fields as `str.format()`. Furthermore, we can 
+also specify a minimum character count for each replacement, allowing us to 
+format columns.
+
+```python
+# The value of pi is approximately 3.142
+print(f'The value of pi is approximately {math.pi:.3f}.')
+
+# Sydney Robotics Academy
+text = "Robotics"
+print(f"Sydney {text} Academy")
+
+# Sydney Robotics   Academy
+text = "Robotics"
+print(f"Sydney {text:10} Academy")
+```
+
 #### Chr()
-We can convert each ASCII or Unicode decimal code to the associated character for us to print with the `chr()` function.
+We can convert each ASCII or Unicode decimal code to the associated character 
+for us to print with the `chr()` function. Note that all Unicode codepoints 
+are in hexadecimal, and are preceded by `0x` (zero + letter x). You will still 
+need to print out the output of this function.
+
+Example:
+
+```python
+# Printing the letter "a"
+print(chr(97))
+
+# Printing from a Unicode codepoint
+print(chr(0x25B2))
+
+# Printing Emoji
+print(chr(0x1f5a5))
+```

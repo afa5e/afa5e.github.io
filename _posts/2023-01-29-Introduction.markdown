@@ -344,7 +344,7 @@ In Python, we can treat a string as a list of characters, allowing us to
 choose any subset of the characters with string slicing.
 
 Using square brackets after a variable containing a string, we can use 
-list indicies to choos the start and end of a substring.
+list indices to choose the start and end of a substring.
 
 We can also specify a single number to choose a single character.
 
@@ -403,4 +403,5 @@ be available for you to access at home if you like.
     is a perfect square, False otherwise.
 13. Write a program that takes a number as input and returns the next palindrome 
     number greater than the given number.
-14. Extension: Create a program that takes a string as input and checks if it is a valid parenthesis substring.
+14. Extension: Create a program that takes a string as input and checks if it is 
+    a valid parenthesis substring.
