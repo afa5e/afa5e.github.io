@@ -2,7 +2,7 @@
 layout: post
 title: Week 3 - Input/Outputs
 categories: 23T1
-date:   2023-02-04 9:00:00 +1100
+date:   2023-02-12 9:00:00 +1100
 expires: 2023-09-09 23:59:59 +1100
 ---
 
