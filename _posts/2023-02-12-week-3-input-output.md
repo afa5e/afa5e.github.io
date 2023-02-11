@@ -339,6 +339,24 @@ print(chr(0x25B2))
 # Printing Emoji 🖥
 print(chr(0x1f5a5))
 ```
+#### Hex() and int()
+
+We can convert from a string to a decimal integer with the `int()` function, and 
+if we provide a base as the second parameter, we can also convert the string into 
+any base. If we then wrap this function with the `hex()` function, we can convert 
+the original string to a hexadecimal value with the same digits.
+
+Example:
+```python
+# String to integer base 10
+int("10") = 10
+
+# Integer base 10 to hexadecimal
+hex(10) = 0xA
+
+# String to hexadecimal
+hex(int("10", 16)) = 0x10
+```
 
 ## Tasks
 This week's tasks are designed to develop our understanding of programmatic flow 
