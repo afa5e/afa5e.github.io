@@ -367,6 +367,13 @@ hex(10) = 0xA
 hex(int("10", 16)) = 0x10
 ```
 
+#### List()
+To convert a string into a list with each character, use the `list()` function.
+
+```python
+list("python") = ['p', 'y', 't', 'h', 'o', 'n']
+```
+
 ## Tasks
 This week's tasks are designed to develop our understanding of programmatic flow 
 and user input/output. This means that instead of testing each different method 
