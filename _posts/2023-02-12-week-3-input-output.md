@@ -2,7 +2,7 @@
 layout: post
 title: Week 3 - Input/Outputs
 categories: 23T1
-date:   2023-02-12 9:00:00 +1100
+date:   2023-02-11 9:00:00 +1100
 expires: 2023-09-09 23:59:59 +1100
 ---
 
@@ -324,7 +324,8 @@ print(f"Sydney {text:10} Academy")
 We can convert each ASCII or Unicode decimal code to the associated character 
 for us to print with the `chr()` function. Note that all Unicode codepoints 
 are in hexadecimal, and are preceded by `0x` (zero + letter x). You will still 
-need to print out the output of this function.
+need to print out the output of this function. You can browse the list of Unicode 
+characters here: [https://unicode-table.com/en/blocks/.](https://unicode-table.com/en/blocks/)
 
 Example:
 
@@ -335,6 +336,28 @@ print(chr(97))
 # Printing from a Unicode codepoint
 print(chr(0x25B2))
 
-# Printing Emoji
+# Printing Emoji 🖥
 print(chr(0x1f5a5))
 ```
+
+## Tasks
+This week's tasks are designed to develop our understanding of programmatic flow 
+and user input/output. This means that instead of testing each different method 
+of IO, which you should do, there will be tasks that incorporate the IO methods 
+listed above with algorithm design. Your code should be able to dynamically 
+respond to the input of the user and correctly respond.
+
+1. Print Hello World! to the terminal.
+2. Get an input from the user and print it out with a prefix "You typed: ". You 
+   should attempt this task with all three methods of printing variables.
+3. Ask the user for a hexadecimal value and try to print out the Unicode character.
+4. Count the number of words in the the user input.
+5. Check if two words that the user inputs are anagrams.
+6. Create a program that prints the numbers from 1 to 100, but for multiples of 3, 
+   it should print "Fizz" instead of the number, and for multiples of 5, it should 
+   print "Buzz". For numbers which are multiples of both 3 and 5, it should print 
+   "FizzBuzz".
+7. Create a program that can encrypt and decrypt a message with the 
+   [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher). This cipher shifts 
+   all letters by a constant offset.
+8. Create a calculator that uses [Reverse Polish Notation.](https://en.wikipedia.org/wiki/Reverse_Polish_notation#Explanation)
