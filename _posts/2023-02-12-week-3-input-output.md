@@ -339,6 +339,15 @@ print(chr(0x25B2))
 # Printing Emoji 🖥
 print(chr(0x1f5a5))
 ```
+
+#### Ord()
+
+We can use the `ord()` function to convert a char back into the ascii/Unicode integer representation.
+
+```python
+ord("a") = 97
+```
+
 #### Hex() and int()
 
 We can convert from a string to a decimal integer with the `int()` function, and 
