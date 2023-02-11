@@ -207,13 +207,21 @@ All escape characters:
 
 ### Input
 As we should all be familiar now, the function to get an input from the terminal is 
-the `input()` function. This function has no parameters, and returns the input from 
-the terminal as a string. This means that we need to assign the returned value to a 
-variable to store the input. Another use for the input is to hold a terminal window 
-open at the end of a program execution.
+the `input()` function. This function has one optional parameter, and returns the 
+input from the terminal as a string. This means that we need to assign the returned 
+value to a variable to store the input. We can also pass a prompt into the function, 
+which will be printed out without a trailing newline.Another use for the input is 
+to hold a terminal window open at the end of a program execution.
 
 ```python
 # Saving input from the terminal
+variable = input()
+
+# Printing a prompt before saving input
+variable = input("-->")
+
+# Same as:
+print("-->", end = "")
 variable = input()
 
 # Holding the terminal window open does not need us to save the input
@@ -230,8 +238,9 @@ is not correctly implemented.
 
 Some examples:
 
-![Bobby Tables]({{site.baseurl}}/assets/img/exploits.png)
-![XSS Self retweeting tweet]({{site.baseurl}}/assets/img/tweetdeck-hacked.png)
+[![Bobby Tables]({{site.baseurl}}/assets/img/exploits.png)](https://xkcd.com/327/)
+[![XSS Self retweeting tweet]({{site.baseurl}}/assets/img/tweetdeck-hacked.png)](https://youtu.be/zv0kZKC6GAM)
+[![result]({{site.baseurl}}/assets/img/tweetdeck.jpg)](https://youtu.be/zv0kZKC6GAM)
 
 ### Output
 
