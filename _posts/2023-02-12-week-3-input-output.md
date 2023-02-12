@@ -236,6 +236,13 @@ be valid, unless otherwise told. Realistically, all inputs must be sanitised
 before any other processing is applied. This is a major security issue if this 
 is not correctly implemented.
 
+To do this, we use the `STRING.strip()` function. `lstrip()` removes leading whitespace, `rstrip()` removes trailing whitespace.
+
+```python
+string = "  hello  "
+string.split()
+```
+
 Some examples:
 
 [![Bobby Tables]({{site.baseurl}}/assets/img/exploits.png)](https://xkcd.com/327/)
