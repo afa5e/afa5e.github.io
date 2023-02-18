@@ -240,7 +240,8 @@ To do this, we use the `STRING.strip()` function. `lstrip()` removes leading whi
 
 ```python
 string = "  hello  "
-string.split()
+string.strip()
+# hello
 ```
 
 Some examples:
