@@ -402,3 +402,4 @@ respond to the input of the user and correctly respond.
    [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher). This cipher shifts 
    all letters by a constant offset.
 8. Create a calculator that uses [Reverse Polish Notation.](https://en.wikipedia.org/wiki/Reverse_Polish_notation#Explanation)
+9. Extension: create a program that can encrypt and decrypt a message with the Vigenere cipher, rail fence cipher and Scytale cipher.
