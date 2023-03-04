@@ -1,6 +1,9 @@
 name: Refresh Pages list
 
 on:
+  push:
+    branches:
+      - master
   schedule:
     - cron:  '1 0 * * SUN'
   workflow_dispatch:

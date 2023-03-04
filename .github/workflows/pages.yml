@@ -11,18 +11,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "10.x"
-      - run: npm install
-      - run: npm run build
-      - run: npm test
       - name: Deploy
         uses:
           crazy-max/ghaction-github-pages@v3
         with:
-          target-branch: master
-          build-dir: build
+          target-branch: main
+          build_dir: build
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_REPO_TOKEN }}
+          GH_PAT: ${{ env.GH_PAT }}
