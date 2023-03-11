@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Week 6 - Loops
+title: Week 7 - Functions
 date: 2023-03-11 23:59 +1100
 categories: 23T1
 expires: 2023-09-09 23:59:59 +1100
