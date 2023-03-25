@@ -6,6 +6,9 @@ categories: 23T1
 expires: 2023-09-09 23:59:59 +1100
 ---
 
+## Revision
+You can review all of the content from this term, and attempt the tasks below.
+
 ### Tasks:
 This week's tasks will cover every topic in this term.
 1. Using variables, assign and then try to add two strings together. Python should print out string1 then immediately followed by string2.
